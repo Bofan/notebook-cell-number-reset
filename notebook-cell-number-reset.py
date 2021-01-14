@@ -5,6 +5,9 @@ notebook-cell-number-reset.py
 
 Takes a series of Python notebook file paths as command line arguments and
   resets the numbering for their code cells.
+  
+In the command line,
+  "python3 notebook-cell-number-reset.py filepath1 filepath2" ...
 """
 
 __author__ = "Bofan Chen"
