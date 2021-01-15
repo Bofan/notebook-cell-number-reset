@@ -6,13 +6,13 @@ notebook-cell-number-reset.py
 Takes a series of Python notebook file paths as command line arguments and
   resets the numbering for their code cells.
   
-In the command line,
+In the command line, type
   "python3 notebook-cell-number-reset.py filepath1 filepath2" ...
 """
 
 __author__ = "Bofan Chen"
 
-# Takes command line arguments.
+# Takes command line arguments and exception types.
 import sys
 # Handles JSON files.
 import json
@@ -29,6 +29,7 @@ def reset_code_cell_numbers(path):
         NONE
     """
     try:
+        # Atomic opening of the file.
         with open(path, mode = "r+", encoding = "utf8") as file:
             data = json.loads(file.read())
             counter = 1
@@ -36,18 +37,20 @@ def reset_code_cell_numbers(path):
                 # Only code cells are labelled.
                 if cell["cell_type"] == "code":
                     cell["execution_count"] = counter
-                    # Change the labels for the output blocks, as well.
+                    # Change the labels for the relevant output blocks, as well.
                     for output in cell["outputs"]:
                         if "execution_count" in output:
                             output["execution_count"] = counter
                     counter += 1
             # Go to the beginning of the file.
             file.seek(0)
-            # Remove all existing contect in the file.
+            # Remove all existing content in the file.
+            # This way, if the new file content is shorter than the previous, 
+            #   there won't be any old text left over at the end.
             file.truncate()
             json.dump(data, file, indent = 4)
-    except:
-        print("Error encountered when dealing with the file at [" + path + "].")
+    except Exception as e:
+        print(e + " encountered when dealing with the file at [" + path + "].")
 
 def main(files):
     """
