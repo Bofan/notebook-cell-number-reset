@@ -50,7 +50,8 @@ def reset_code_cell_numbers(path):
             file.truncate()
             json.dump(data, file, indent = 4)
     except Exception as e:
-        print(e + " encountered when dealing with the file at [" + path + "].")
+        print(e.__class__ + " encountered when dealing with the file at [" \
+          + path + "].")
 
 def main(files):
     """
