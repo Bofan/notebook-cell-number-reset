@@ -3,6 +3,9 @@
 ## Contributors
 Bofan Chen
 
+## Languages
+Python
+
 ## Usage
 In the command line, type
 ```
