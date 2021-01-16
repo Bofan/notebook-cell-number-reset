@@ -64,16 +64,14 @@ def main(files):
     RETURNS
         NONE
     """
-    for path in files:
+    # The first index will contain the file name.
+    # The rest will be the command line arguments,
+    #   which are expected to be file paths.
+    for path in sys.argv[1:]:
         if path[-6:] != ".ipynb":
             print("File at [" + path + "] is not a Python notebook file.")
         else:
             reset_code_cell_numbers(path)
 
 if __name__ == "__main__":
-    # The first index will contain the file name.
-    # The rest will be the command line arguments,
-    #   which are expected to be file paths.
-    files = sys.argv[1:]
-    # Pass on the list of file paths to the main function.
-    main(files)
+    main()
