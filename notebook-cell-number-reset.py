@@ -53,7 +53,7 @@ def reset_code_cell_numbers(path):
         print(e.__class__ + " encountered when dealing with the file at [" \
           + path + "].")
 
-def main(files):
+def main():
     """
     DESCRIPTION
         Goes over each file in a series.
