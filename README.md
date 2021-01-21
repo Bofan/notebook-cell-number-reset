@@ -9,7 +9,7 @@ Python
 ## Usage
 In the command line, type
 ```
-python3 notebook-cell-number-reset.py filepath1 filepath2 filepathN
+python3 notebook-cell-number-reset.py filepath-1 filepath-2 filepath-n
 ```
 All file URLs passed as command line arguments must be those of Jupyter Python notebooks (`.ipynb`).
 
