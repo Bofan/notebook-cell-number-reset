@@ -30,6 +30,8 @@ def reset_code_cell_numbers(path):
     """
     try:
         # Atomic opening of the file.
+        # Mode allows for (r)eading and over-writing (+).
+        # JSON files are encoded in UTF-8 by default.
         with open(path, mode = "r+", encoding = "utf8") as file:
             data = json.loads(file.read())
             counter = 1
