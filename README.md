@@ -22,4 +22,4 @@ All file URLs passed as command line arguments must be those of Jupyter Python n
 ---
 
 ## Notes
-This program may create unwanted `.ipynb_checkpoints` folders in the directories of the notebooks that were reset.
+This program may create unwanted `.ipynb_checkpoints` (simple version control) folders in the directories of the notebooks that were reset.
